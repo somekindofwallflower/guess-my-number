@@ -1,7 +1,7 @@
 "use strict";
 
 // Declare a const to store a random number between 1 and 20
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 // declare a variable to store the max score
 let score = 20;
 // Give the html element with class score the value of score
@@ -44,3 +44,21 @@ document.querySelector('.check').addEventListener('click', function () {
         }
     }
 });
+
+document.querySelector('.again').addEventListener('click', function() {
+    // Restore initial values of the 'score'
+    score = 20;
+    document.querySelector('.score').textContent = score;
+    // Restore initial values of the 'secretNumber'
+    secretNumber = Math.trunc(Math.random() * 20) + 1
+    // Restore the initial conditions of the guess value
+    document.querySelector('.guess').value = '';
+    // Restore the original background color (#222) and number width (15rem)
+    document.querySelector('body').style.backgroundColor = '#222';
+    document.querySelector('.number').style.width = '15rem';
+    // Restore the initial conditions of the message
+    document.querySelector('.message').textContent = "Start guessing...";
+    // Restore the initial conditions of the number
+    document.querySelector('.number').textContent = "?";
+})
+
